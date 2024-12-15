@@ -5,6 +5,28 @@ from portfolio import Portfolio
 from utils import clean_text
 
 def create_streamlit_app(llm, portfolio, clean_text):
+    """
+    Creates a Streamlit web application for generating cold emails based on job postings.
+
+    Parameters:
+        llm: Language model interface for extracting job information and generating emails
+        portfolio: Portfolio object containing user's work examples and relevant links
+        clean_text: Function to preprocess and clean the scraped text data
+
+    Flow:
+        1. Displays a URL input field for job posting
+        2. On submission, scrapes the webpage content
+        3. Extracts job details using the language model
+        4. Matches user's portfolio links with required skills
+        5. Generates personalized cold emails
+        6. Displays the generated emails in the UI
+
+    Returns:
+        None - Displays results directly in Streamlit interface
+
+    Raises:
+        Exception: Displays error message in Streamlit UI if any step fails
+    """
     st.title("📧 Cold Mail Generator")
     url_input = st.text_input("Enter a URL:", value="")
     submit_button = st.button("Submit")
