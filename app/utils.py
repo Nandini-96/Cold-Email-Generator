@@ -1,24 +1,6 @@
 import re
 
 def clean_text(text):
-    """
-    Clean and normalize text by removing HTML tags, URLs, special characters, and excess whitespace.
-
-    Args:
-        text (str): The input text string to be cleaned.
-
-    Returns:
-        str: The cleaned text string with:
-            - HTML tags removed
-            - URLs removed
-            - Special characters removed (keeping only alphanumeric and spaces)
-            - Multiple spaces replaced with single spaces
-            - Leading/trailing whitespace removed
-
-    Example:
-        >>> clean_text("<p>Hello  World! https://example.com</p>")
-        'Hello World'
-    """
     # Remove HTML tags
     text = re.sub(r'<[^>]*?>', '', text)
     # Remove URLs
